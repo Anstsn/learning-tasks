@@ -8,6 +8,24 @@
             "program": "${workspaceFolder}\\build\\src\\main.js",
             "preLaunchTask": "tsbuild",
             "outFiles": ["${workspaceFolder}/build/src/**/*.js"]
+        },
+        {
+            "type": "node",
+            "request": "launch",
+            "name": "Mocha Tests",
+            "program": "${workspaceFolder}/node_modules/mocha/bin/_mocha",
+            "args": [
+                "--require",
+                "ts-node/register",
+                "-u",
+                "tdd",
+                "--timeout",
+                "999999",
+                "--colors",
+                "--recursive",
+                "${workspaceFolder}/tests/**/*.ts"
+            ],
+            "internalConsoleOptions": "openOnSessionStart"
         }
     ]
 }

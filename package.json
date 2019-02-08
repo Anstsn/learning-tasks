@@ -5,10 +5,16 @@
     "main": "main.js",
     "dependencies": {},
     "devDependencies": {
-        "@types/node": "^10.12.14"
+        "@types/chai": "^4.1.7",
+        "@types/mocha": "^5.2.5",
+        "@types/node": "^10.12.14",
+        "chai": "^4.2.0",
+        "mocha": "^5.2.0",
+        "ts-node": "^8.0.2",
+        "typescript": "^3.3.3"
     },
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "test": "mocha -r ts-node/register tests/**/*.spec.ts"
     },
     "author": "Alexey Solyanik",
     "license": "ISC"
