@@ -8,7 +8,8 @@
         "quotemark": [true, "single", "always"],
         "semicolon": [true, "always"],
 
-        "arrow-parens": [true, "ban-single-arg-parens"]
+        "arrow-parens": [true, "ban-single-arg-parens"],
+        "no-bitwise": false
     },
     "rulesDirectory": []
 }
