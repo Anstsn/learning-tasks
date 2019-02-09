@@ -1,6 +1,6 @@
-import { add, five, one, seven, subtract, two } from "../src/functions/diff.function";
+import { Person, myNew } from './functions/diff.function';
 
-const result6 = five(add(one())); // 6
-const result5 = seven(subtract(two())); // 5
+const person1 = new Person('Alex', 32);
+var person2 = myNew(Person, 'Vasia', 34);
 
-console.log(`result6 = ${result6}`, `result5 = ${result5}`);
+console.log(person1, person2);
