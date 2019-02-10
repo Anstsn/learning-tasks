@@ -1,5 +1,5 @@
-import { zipArray } from "./functions/diff.function";
+import { generateBracketSequence } from "./functions/diff2.function";
 
-var t = zipArray([3, 2, 1, 5, 6, -1, 10]); // "-1,1-3,5-6,10"
+const t = generateBracketSequence(5);
 
 console.log(t);
