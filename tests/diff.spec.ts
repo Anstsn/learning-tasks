@@ -15,7 +15,13 @@ import {
     add2, 
     add3,
     isPalindrom,
-    zipArray
+    zipArray,
+    joinFunc1,
+    joinFunc2,
+    sumAllArrayElements,
+    isArrayMonotone,
+    getProperty,
+    zipString
 } from '../src/functions/diff.function';
 
 describe('Diff 1', () => {
@@ -203,5 +209,86 @@ describe('Diff 8 zipArray', () => {
 
     it('[22,64,7,12,5,7,3,12,2,2,3,4,5]', () => {                
         expect(zipArray([22,64,7,12,5,7,3,12,2,2,3,4,5])).to.equal('2-5,7,12,22,64');
+    });
+});
+
+describe('Diff 9', () => {
+
+    it('Аналог .join 1 (...args)', () => {
+        expect(joinFunc1('!', 1, 0, 5, -11)).to.equal('1!0!5!-11');
+    });
+
+    it('Аналог .join 2 (js arguments)', () => {
+        expect(joinFunc2('!', 1, 0, 5, -11)).to.equal('1!0!5!-11');
+    });
+});
+
+describe('Diff 10', () => {
+
+    it('Сумма чисел массива [1, 2, "3x"]', () => {
+        expect(sumAllArrayElements([1, 2, "3x"])).to.equal(6);
+    });
+
+    it('Сумма чисел массива [1, 2, "x3"]', () => {
+        expect(sumAllArrayElements([1, 2, "x3"])).to.equal(6);
+    });
+
+    it('Сумма чисел массива [1, [1, 2], 2]', () => {
+        expect(sumAllArrayElements([1, [1, 2], 2])).to.equal(6);
+    });
+});
+
+describe('Diff 11 Монотонность массива', () => {
+
+    it('[0, 1, 1, 5, 9, 9, 15]', () => {
+        expect(isArrayMonotone([0, 1, 1, 5, 9, 9, 15])).to.equal(true);
+    });
+
+    it('[0, 1, 5, 9, 15]', () => {
+        expect(isArrayMonotone([0, 1, 5, 9, 15])).to.equal(true);
+    });
+
+    it('[15, 8, 4, 2, 1]', () => {
+        expect(isArrayMonotone([15, 8, 4, 2, 1])).to.equal(true);
+    });
+
+    it('[0, 1, 5, 15, 4]', () => {
+        expect(isArrayMonotone([0, 1, 5, 15, 4])).to.equal(false);
+    });
+});
+
+describe('Diff 12 getProperty', () => {
+    const o = {
+        a: {
+            b: {},
+            c: 42
+        },
+        z: null
+    };
+
+    it('a.c', () => {
+        expect(getProperty(o, 'a.c')).to.equal(42);
+    });
+
+    it('a.d', () => {
+        expect(getProperty(o, 'a.d')).to.equal(undefined);
+    });
+
+    it('z', () => {
+        expect(getProperty(o, 'z')).to.equal(null);
+    });
+});
+
+describe('Diff 13 zipString', () => {
+    it('AAABbbbBcCCC', () => {
+        expect(zipString('AAABbbbBcCCC')).to.equal('A3Bb3BcC3');
+    });
+
+    it('FffFFFghsKKkkLkkL', () => {
+        expect(zipString('FffFFFghsKKkkLkkL')).to.equal('Ff2F3ghsK2k2Lk2L');
+    });
+
+    it('qwerRRttYuuwioiwqjJJJhls', () => {
+        expect(zipString('qwerRRttYuuwioiwqjJJJhls')).to.equal('qwerR2t2Yu2wioiwqjJ3hls');
     });
 });

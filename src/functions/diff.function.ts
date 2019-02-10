@@ -91,6 +91,69 @@ export const isPalindrom = (str: string): boolean => {
     return except === except.split('').reverse().join('');
 }
 
+export const joinFunc1 = (...args): string => {
+    const arr = [...args];
+    
+    return arr.splice(1, arr.length - 1).join(arr[0]);
+}
+
+export function joinFunc2(...args): string {
+    const arr = Array.prototype.slice.call(arguments);
+
+    return arr.splice(1, arr.length - 1).join(arr[0]);
+}
+
+export const sumAllArrayElements = (arr: any[]): number => {
+    return arr.reduce((sum, value) => {
+        return sum += +(Array.isArray(value) ? sumAllArrayElements(value) : +(''+value).replace(/[\D_]/g, ''));
+    }, 0);
+}
+
+export const isArrayMonotone = (arr: any[]): boolean => {
+    return arr.every((element, index, array) => index 
+        ? element >= array[index-1]
+        : true) || 
+        arr.every((element, index, array) => index 
+        ? element <= array[index-1]
+        : true);
+}
+
+export const getProperty = (obj: any, propertyPath: string): any => {
+    const props = propertyPath.split('.');
+    let value = obj;
+
+    props.forEach(prop => {
+        if (value.hasOwnProperty(prop)) {
+            value = value[prop];
+        } else {
+            value = undefined;
+        }
+    });
+
+    return value;
+}
+
+export const zipString = (str: string): string => {
+    const strArray = str.split('');
+
+    let current = strArray[0];
+    let count = 1;
+    let result = '';
+
+    strArray.slice(1, strArray.length).forEach(s =>{
+        if (current === s) {
+            count++;
+        } else {
+            result += `${current}${(count === 1 ? '' : count)}`;
+
+            count = 1;
+            current = s;
+        }
+    });
+
+    return result += `${current}${(count === 1 ? '' : count)}`, result;
+}
+
 function findSumOfAllValuesRecoursive(array: any[]): number {
     let result = 0;
 
