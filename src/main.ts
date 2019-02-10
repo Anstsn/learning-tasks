@@ -1,6 +1,5 @@
-import { Person, myNew } from './functions/diff.function';
+import { zipArray } from "./functions/diff.function";
 
-const person1 = new Person('Alex', 32);
-var person2 = myNew(Person, 'Vasia', 34);
+var t = zipArray([3, 2, 1, 5, 6, -1, 10]); // "-1,1-3,5-6,10"
 
-console.log(person1, person2);
+console.log(t);
