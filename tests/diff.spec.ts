@@ -24,6 +24,8 @@ import {
     zipString
 } from '../src/functions/diff.function';
 
+import { traversalTree } from '../src/functions/diff2.function';
+
 describe('Diff 1', () => {
 
     it('five(add(one()))', () => {
@@ -67,6 +69,7 @@ describe('Diff 3 findSumOfAllValues()', () => {
         }
 
         expect(findSumOfAllValues(obj)).to.equal(10);
+        expect(traversalTree([obj])).to.equal(10);        
     });
 
     it('findSumOfAllValues 69', () => {
@@ -122,6 +125,7 @@ describe('Diff 3 findSumOfAllValues()', () => {
         }
 
         expect(findSumOfAllValues(obj)).to.equal(69);
+        expect(traversalTree([obj])).to.equal(69);  
     });
 });
 

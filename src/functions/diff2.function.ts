@@ -57,4 +57,27 @@ export const generateBracketSequence = (count: number): string[] => {
     generateBracketSequenceRecoursive(count, 0, 0, '');
     
     return resultArray;
-} 
+}
+
+export const traversalTree = (firstLevelElements): number => {
+    const currRoots = [{next: firstLevelElements, index: 0}];
+    let result = 0;
+
+    while(currRoots.length) {
+        const currRoot = currRoots[currRoots.length - 1]
+        if(currRoot.index === currRoot.next.length) {
+            currRoots.length--;
+        } else {
+            const item = currRoot.next[currRoot.index++]    
+            // console.log('-'.repeat(currRoots.length - 1) + ' ' + item.value);
+
+            result += item.value;
+
+            if(item.next){
+                currRoots.push({next: item.next, index: 0})
+            }
+        }
+    }
+
+    return result;
+}   
