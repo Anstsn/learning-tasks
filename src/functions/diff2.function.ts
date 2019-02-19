@@ -20,7 +20,7 @@ export const countNumber = (n: number, numbers: string | number[]): number => {
     });
 
     return result;
-}
+};
 
 /**
  * Генерация всех возможных скобочных последовательностей
@@ -57,27 +57,76 @@ export const generateBracketSequence = (count: number): string[] => {
     generateBracketSequenceRecoursive(count, 0, 0, '');
     
     return resultArray;
-}
+};
 
 export const traversalTree = (firstLevelElements): number => {
     const currRoots = [{next: firstLevelElements, index: 0}];
     let result = 0;
 
-    while(currRoots.length) {
-        const currRoot = currRoots[currRoots.length - 1]
-        if(currRoot.index === currRoot.next.length) {
+    while (currRoots.length) {
+        const currRoot = currRoots[currRoots.length - 1];
+
+        if (currRoot.index === currRoot.next.length) {
             currRoots.length--;
         } else {
-            const item = currRoot.next[currRoot.index++]    
+            const item = currRoot.next[currRoot.index++];
             // console.log('-'.repeat(currRoots.length - 1) + ' ' + item.value);
 
             result += item.value;
 
-            if(item.next){
-                currRoots.push({next: item.next, index: 0})
+            if (item.next) {
+                currRoots.push({next: item.next, index: 0});
             }
         }
     }
 
     return result;
-}   
+};
+
+export const traversalTree2 = (firstLevelElements): number => {
+    let result = 0;
+    const roots = [{ next: firstLevelElements, index: 0 }];
+
+    while (roots.length) {
+        const root = roots[roots.length - 1];
+
+        if (root.index === root.next.length) {
+            roots.length--;
+        } else {
+            const item = root.next[root.index];
+            root.index++;
+
+            result += item.value;
+
+            if (item.next) {
+                roots.push({ next: item.next, index: 0});
+            }
+        }
+    }
+
+    return result;
+};
+
+export const traversalTree3 = (firstLevelElements): number => {
+    let result = 0;
+    const roots = [{ next: firstLevelElements, index: 0 }];
+
+    while (roots.length) {
+        const root = roots[roots.length - 1];
+
+        if (root.index === root.next.length) {
+            roots.length--;
+        } else {
+            const item = root.next[root.index];
+            root.index++;
+
+            result += item.value;
+
+            if (item.next) {
+                roots.push({ next: item.next, index: 0 });
+            }
+        }
+    }
+
+    return result;
+}
