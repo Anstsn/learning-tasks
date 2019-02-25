@@ -129,4 +129,4 @@ export const traversalTree3 = (firstLevelElements): number => {
     }
 
     return result;
-}
+};

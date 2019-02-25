@@ -9,7 +9,9 @@
         "semicolon": [true, "always"],
 
         "arrow-parens": [true, "ban-single-arg-parens"],
-        "no-bitwise": false
+        "no-bitwise": false,
+
+        "no-namespace": false
     },
     "rulesDirectory": []
 }
